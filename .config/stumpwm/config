@@ -1,0 +1,75 @@
+;; -*-lisp-*-
+;;
+;; Here is a sample .stumpwmrc file
+
+(in-package :stumpwm)
+;; change the prefix key to something else
+(set-prefix-key (kbd "C-t"))
+
+;;;Set BG
+(run-shell-command "hsetroot")
+
+
+(add-to-load-path "/usr/share/stumpwm/contrib")
+(load-module "battery-portable")
+(load-module "swm-gaps")
+;; Font
+(set-font "-uw-ttyp0-medium-r-normal--15-140-75-75-c-80-iso10646-1")
+
+;; Gaps
+(if (not swm-gaps:*gaps-on*)
+  (swm-gaps:toggle-gaps))
+
+
+(setf *message-window-gravity* :center
+      *input-window-gravity* :center
+      *window-border-style* :thin
+      *normal-border-width* 2)
+
+;;Groups
+(stumpwm:grename "One")
+(stumpwm:gnewbg "Two")
+(stumpwm:gnewbg "Three")
+(stumpwm:gnewbg "Four")
+(stumpwm:gnewbg "Five")
+(stumpwm:gnewbg "Six")
+
+(defvar colorbg "#0c0d0e")
+(defvar colorfg "#b6b8b9")
+
+(setf
+  *mode-line-background-color* colorbg
+  *mode-line-foreground-color* colorfg)
+
+(load-module "mem")
+(setf *window-format* "%m%n%s%c")
+(setf *screen-mode-line-format* (list "%g | %v ^> %M | ^R%B^r %d"))
+
+(setf *time-modeline-string* "%k:%M")
+(setf *mode-line-timeout* 2)
+
+(enable-mode-line (current-screen) (current-head) t)
+
+(define-key *root-map* (kbd "c") "exec st")
+
+;; Mouse focus on mouse click
+(setf *mouse-focus-policy* :sloppy)
+
+;; Clear rules
+(clear-window-placement-rules)
+
+;; Last rule to match takes precedence!
+;; TIP: if the argument to :title or :role begins with an ellipsis, a substring
+;; match is performed.
+;; TIP: if the :create flag is set then a missing group will be created and
+;; restored from *data-dir*/create file.
+;; TIP: if the :restore flag is set then group dump is restored even for an
+;; existing group using *data-dir*/restore file.
+(define-frame-preference "Default"
+  ;; frame raise lock (lock AND raise == jumpto)
+  (0 t nil :class "Konqueror" :role "...konqueror-mainwindow")
+  (1 t nil :class "XTerm"))
+
+(define-frame-preference "Emacs"
+  (1 t t :restore "emacs-editing-dump" :title "...xdvi")
+  (0 t t :create "emacs-dump" :class "Emacs"))

@@ -1,0 +1,75 @@
+{
+    "height": 25, // Waybar height (to be removed for auto height)
+    "spacing": 4, // Gaps between modules (4px)
+	  "margin-bottom": 4,
+		"fixed-center": true,
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["sway/window"],
+		"modules-right": ["battery", "pulseaudio", "temperature","memory", "clock"],
+
+		"sway/workspaces": {
+			"disable-scroll": false,
+			"format": "{icon}",
+			"format-icons": {
+				"1": "爵",
+				"2": "",
+				"3": "",
+				"4": "",
+				"5": "",
+				"6": "",
+				"7": "",
+			"default": ""
+			},
+
+		},
+
+		"sway/window": {
+			"format": "{title}",
+			"max-length": 60,
+		},
+
+
+		"clock": {
+			"format": " {:%H:%M}",
+		},
+
+		"pulseaudio": {
+	    "format": "{icon} {volume}%",
+			"format-bluetooth": "{volume}% {icon}",
+		  "format-muted": "",
+	    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+			},
+		"scroll-step": 1,
+    "on-click": "pavucontrol"
+		},
+		"memory": {
+			"interval": 10,
+			"format": " {}%",
+			"max-lenght": 10
+		},
+		"temperature": {
+			"format": " {temperatureC}°C",
+			"format-critical": "{temperatureC}°C ",
+			"critical-threshold": 65,
+			"thermal-zone": 3,
+		},
+		"battery": {
+			"bat": "axp288_fuel_gauge",
+	    "interval": 60,
+	    "states": {
+		      "warning": 30,
+			    "critical": 15
+	    },
+		  "format": "{icon} {capacity}%",
+			"format-icons": ["", "", "", "", ""],
+	    "max-length": 25
+		}
+}
+// vim: ft=json
