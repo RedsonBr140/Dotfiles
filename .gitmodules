@@ -1,0 +1,6 @@
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/RedsonBr140/nvim
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/RedsonBr140/Redmacs
