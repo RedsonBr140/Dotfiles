@@ -4,3 +4,15 @@
 [submodule ".emacs.d"]
 	path = .emacs.d
 	url = https://github.com/RedsonBr140/Redmacs
+[submodule ".config/tmux/plugins/tpm"]
+	path = .config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule ".config/tmux/plugins/tmux-battery"]
+	path = .config/tmux/plugins/tmux-battery
+	url = https://github.com/tmux-plugins/tmux-battery
+[submodule ".config/tmux/plugins/tmux-cpu"]
+	path = .config/tmux/plugins/tmux-cpu
+	url = https://github.com/tmux-plugins/tmux-cpu
+[submodule ".config/tmux/plugins/tmux-weather"]
+	path = .config/tmux/plugins/tmux-weather
+	url = https://github.com/aaronpowell/tmux-weather
