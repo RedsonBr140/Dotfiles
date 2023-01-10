@@ -12,7 +12,7 @@ if status --is-login
 	end
 end
 
-set -U fish_user_paths /usr/lib/ccache/bin /home/redson/.cargo/bin /home/redson/.fly/bin $(go env GOPATH)/bin /opt/node-v16.15.1-linux-x64/bin ~/.local/bin $fish_user_paths
+set -U fish_user_paths /usr/lib/ccache/bin /home/redson/.cargo/bin /home/redson/.fly/bin $(go env GOPATH)/bin /opt/node-v16.15.1-linux-x64/bin ~/.local/bin ~/.local/bin/lua-server/bin $fish_user_paths
 set -U EDITOR nvim
 
 # pnpm
